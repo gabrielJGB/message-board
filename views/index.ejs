@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%-include('./partials/head.ejs')%>
+</head>
+
+<body>
+
+    <%-include('./partials/nav.ejs')%>
+
+
+        <div class="container">
+            <form action="/" method="POST">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input required type="text" class="form-control" id="name" name="name" placeholder="Your name">
+                </div>
+                <div class="mb-3">
+                    <label for="body" class="form-label">Message</label>
+                    <textarea type="text" required class="form-control" id="body" name="body" placeholder="Your message" rows="3"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary send-button">Send</button>
+            </form>
+        </div>
+
+        <hr>
+
+        <div class="message-box container">
+
+                <% if (messages.length >0) { %>
+                    <% messages.forEach(message => { %>
+                        <div class="message">
+                            <div class="message-head">
+                                <div class="name"><%=message.name%></div>
+                                <div class="date"><%=message.createdAt.toLocaleString()%></div>
+                            </div>
+                            <div class="message-body"><%=message.body%></div>
+                        </div>
+                    <% }) %>
+                <% } else { %>%>
+                    <div class="empty">(Empty)</div>
+                <%}%>
+        </div>
+
+
+        <%-include('./partials/footer.ejs')%>
+</body>
+
+</html>
