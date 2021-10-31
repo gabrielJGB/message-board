@@ -7,7 +7,7 @@ const index = (req,res)=>{
     })
     .catch(error=>{console.log(error)});
 }
-
+//--
 const message_create_post = (req,res)=>{
     console.log(req.body)
     const message = new Message(req.body);
