@@ -3,7 +3,7 @@ const Message = require('../models/message');
 const index = (req,res)=>{
     Message.find().sort({createdAt:-1})
     .then((result)=>{
-        res.render('index',{title:'Message board',messages:result});
+        res.render('index',{title:'A simple message board',messages:result});
     })
     .catch(error=>{console.log(error)});
 }
